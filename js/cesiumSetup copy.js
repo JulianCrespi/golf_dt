@@ -5,31 +5,16 @@ async function initialize() {
 
     
     const viewer = new Cesium.Viewer("cesiumContainer", {
-        timeline: false,
-        animation: false,
-        sceneModePicker: false,
-        baseLayerPicker: false,
-        // The globe does not need to be displayed,
-        // since the Photorealistic 3D Tiles include terrain
         globe: false,
-        
     });
-   
-  
-    // Enable rendering the sky
-viewer.scene.skyAtmosphere.show = true;
 
     try {
         const tileset = await Cesium.createGooglePhotorealistic3DTileset();
         viewer.scene.primitives.add(tileset);
-        tileset.maximumScreenSpaceError = 6; // Lower value for higher detail
-
         } catch (error) {
         console.log(`Failed to load tileset: ${error}`);
         }
     
-
-        
     // Define your desired camera settings
     const longitude = -70.56675498794324; // Example longitude
     const latitude = -33.44218206642709;  // Example latitude
