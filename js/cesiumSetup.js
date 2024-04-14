@@ -22,7 +22,7 @@ viewer.scene.skyAtmosphere.show = true;
     try {
         const tileset = await Cesium.createGooglePhotorealistic3DTileset();
         viewer.scene.primitives.add(tileset);
-        tileset.maximumScreenSpaceError = 6; // Lower value for higher detail
+        tileset.maximumScreenSpaceError = 8; // Lower value for higher detail
 
         } catch (error) {
         console.log(`Failed to load tileset: ${error}`);
