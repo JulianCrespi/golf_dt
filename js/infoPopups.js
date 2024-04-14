@@ -7,7 +7,7 @@ function createCustomInfoArea(id, name, coordinates, infoHtml) {
         // Optional: Use a small icon as a marker
         billboard: {
             image: 'src/img/iconGPS.png',
-            scale: 0.04,
+            scale: 0.03,
             disableDepthTestDistance: Number.POSITIVE_INFINITY
         },
         description: infoHtml // HTML content for the pop-up
@@ -15,7 +15,7 @@ function createCustomInfoArea(id, name, coordinates, infoHtml) {
 }
 
 const area1Info = `
-    <h1>Hoyo 1: "El Desafío"</h1>
+    <h1>Hoyo 12:</h1>
     <p><strong>Par:</strong> 4<br>
     <br>
     <strong>Distancia:</strong> 350 metros<br>
@@ -27,7 +27,7 @@ const area1Info = `
 `;
 
 const area2Info = `
-    <h1>Hoyo 2: "La Prueba"</h1>
+    <h1>Hoyo 15:</h1>
     <p><strong>Par:</strong> 5<br>
     <br>
     <strong>Distancia:</strong> 500 metros<br>
@@ -40,9 +40,31 @@ const area2Info = `
     Ideal para jugadores estratégicos.</p>
 `;
 
+const area3Info = `
+    <h1>Hoyo 9:</h1>
+    <p><strong>Par:</strong> 5<br>
+    <br>
+    <strong>Distancia:</strong> 500 metros<br>
+    <br>
+    Un hoyo largo que exige precisión y potencia. 
+    <br>
+    <br>
+    El segundo tiro es clave para acercarse al green rodeado de agua.
+    </p>
+    Ideal para jugadores estratégicos.</p>
+`;
+
+
+
+
 // GPS Format: [longitude, latitude, height]
 const area1 = createCustomInfoArea('area1', 'Area 1', [-70.56600387747349,-33.432135953311246,686], area1Info);
 const area2 = createCustomInfoArea('area2', 'Area 2', [-70.56397774110417,-33.43459703554195,686], area2Info);
+const area3 = createCustomInfoArea('area3', 'Area 3', [-70.56986020520716,-33.43449361210556,686], area3Info);
 
 
 // Repeat for other areas
+
+
+
+

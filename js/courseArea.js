@@ -1,6 +1,6 @@
 
     async function loadCourseArea() {
-        const resource = await Cesium.IonResource.fromAssetId(2425112); 
+        const resource = await Cesium.IonResource.fromAssetId(2537295); 
         const dataSource = await Cesium.KmlDataSource.load(resource, {
             camera: viewer.scene.camera,
             canvas: viewer.scene.canvas,
@@ -10,5 +10,5 @@
         viewer.dataSources.add(dataSource);
     }
     
-   //loadCourseArea(); // Call the function
+   loadCourseArea(); // Call the function
     

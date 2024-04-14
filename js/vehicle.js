@@ -29,7 +29,7 @@ function createVehicleEntity(vehicleData) {
         position: Cesium.Cartesian3.fromDegrees(vehicleData.longitude, vehicleData.latitude),
         billboard: {
             image: 'src/img/tractor.png',
-            scale: 0.1,
+            scale: 0.17,
             heightReference: Cesium.HeightReference.CLAMP_TO_GROUND, // Ensure it clamps to the ground like the pins
             disableDepthTestDistance: Number.POSITIVE_INFINITY // Ensuring it's always visible
         },

@@ -1,4 +1,4 @@
-var viewer;  // Global declaration
+let viewer;  // Global declaration
 
 async function initialize() {
     Cesium.Ion.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3YmEyZmY4Mi0wNDgwLTQyMDItYTA3ZS1kZDI5MjU0YjRlZWEiLCJpZCI6MTE2MTM2LCJpYXQiOjE2Njk0MTQ4OTN9.Lb3zap4P2SX1Zdv8eZmDAZBfK2gsdhPesgkApQBQ62I";
@@ -60,7 +60,7 @@ async function initialize() {
 
     viewer.entities.add(area1);
     viewer.entities.add(area2);
-   
+    viewer.entities.add(area3);
 }
 
 initialize();
