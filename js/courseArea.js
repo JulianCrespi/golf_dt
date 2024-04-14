@@ -10,5 +10,5 @@
         viewer.dataSources.add(dataSource);
     }
     
-   loadCourseArea(); // Call the function
+   //loadCourseArea(); // Call the function
     

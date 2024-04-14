@@ -25,28 +25,30 @@ async function fetchVehicleData() {
 function createVehicleEntity(vehicleData) {
     const entity = new Cesium.Entity({
         id: vehicleData.id,
+        name: vehicleData.id, // Added name for consistency with pins
         position: Cesium.Cartesian3.fromDegrees(vehicleData.longitude, vehicleData.latitude),
         billboard: {
             image: 'src/img/tractor.png',
-            heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
             scale: 0.1,
-            disableDepthTestDistance: Number.POSITIVE_INFINITY
-        }
+            heightReference: Cesium.HeightReference.CLAMP_TO_GROUND, // Ensure it clamps to the ground like the pins
+            disableDepthTestDistance: Number.POSITIVE_INFINITY // Ensuring it's always visible
+        },
+        description: `
+            <h1>Información Tractor H-100</h1>
+            <ul>
+                <li>Status: ${vehicleData.additionalInfo.status}</li>
+                <li>Ultimo Mantenimiento: ${vehicleData.additionalInfo.lastMaintenance}</li>
+                <li>Tarea Actual: ${vehicleData.additionalInfo.currentTask}</li>
+                <li>Información Adicional: ${vehicleData.additionalInfo.additionalDetails}</li>
+            </ul>
+        `
     });
-
-    // Add click event listener to show additional information
-    entity.description = `
-        <h1>Información Tractor H-100</h1>
-        <ul>
-            <li>Status: ${vehicleData.additionalInfo.status}</li>
-            <li>Ultimo Mantenimiento: ${vehicleData.additionalInfo.lastMaintenance}</li>
-            <li>Tarea Actual: ${vehicleData.additionalInfo.currentTask}</li>
-            <li>Información Adicional: ${vehicleData.additionalInfo.additionalDetails}</li>
-        </ul>
-    `;
 
     return entity;
 }
+
+
+
 
 function updateVehiclePosition(vehicleData) {
     const vehicleEntity = viewer.entities.getById(vehicleData.id);
@@ -60,7 +62,12 @@ async function loadVehicle() {
     const vehicleData = await fetchVehicleData();
     const vehicleEntity = createVehicleEntity(vehicleData);
     viewer.entities.add(vehicleEntity);
+   
+    
 }
+
+
+
 
 loadVehicle(); // Call the function
 
